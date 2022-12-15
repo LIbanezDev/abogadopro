@@ -12,7 +12,7 @@ interface ExtendedNextApiRequest extends NextApiRequest {
     email: String;
     type: String
     content: String
-    emails: Array<String>
+    emails: Array<string>
   };
 }
 
@@ -29,7 +29,6 @@ export default async function handler(
     mailer.setApiKey(process.env.SENDGRID_API_KEY as string)
     const {email, content, type, emails} = req.body;
 
-    // @ts-ignore
     const msg: MailDataRequired = {
       to: emails,
       from: 'berriosm.sg@gmail.com',
